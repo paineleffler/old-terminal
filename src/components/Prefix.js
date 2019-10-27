@@ -7,16 +7,31 @@ const Arrow = styled.span`
   margin-right: 1rem;
   ${props => props.success
   ? css`
-    color: #C51E14;
+    color: #67F86F;
   `
   : css`
-    color: #1DC121;
+    color: #FD6F6B;
   `}
 `
 
 const CurrentDirectory = styled.span`
-  color: #20C5C6;
+  color: #68FDFE;
   font-weight: 600;
+  margin-right: 1rem;
+`
+
+const Git = styled.span`
+  color: #6A76FB;
+  font-weight: 600;
+  margin-right: 1rem;
+`
+
+const Branch = styled.span`
+  color: #FD6F6B;
+`
+
+const X = styled.span`
+  color: #FFFA72;
   margin-right: 1rem;
 `
 
@@ -26,7 +41,8 @@ const Prefix = (props) => {
   return (
     <span>
       <Arrow success={success}>→</Arrow>
-      <CurrentDirectory>~</CurrentDirectory>
+      <CurrentDirectory>website</CurrentDirectory>
+      <Git>git:(<Branch>master</Branch>)</Git><X>&#10008;</X>
     </span>
   )
 }
@@ -36,7 +52,7 @@ const Prefix = (props) => {
 // Input does have a line prefix
 
 Prefix.propTypes = {
-  success: PropTypes.string,
+  success: PropTypes.bool,
   type: PropTypes.string
 }
 
