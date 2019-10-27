@@ -14,6 +14,7 @@ const TopBar = styled.div`
 
 const RightContainer = styled.div`
   align-self: flex-start;
+  width: .5rem;
 `
 
 const LeftContainer = styled.div`
@@ -66,7 +67,7 @@ const Header = () => {
         </MacOptions>
       </LeftContainer>
       <CenterContainer>
-        <p unselectable="on">guest@paineleffler.com: ~{path}</p>
+        guest@paineleffler.com: ~{path}
       </CenterContainer>
       <RightContainer />
     </TopBar>
