@@ -23,6 +23,10 @@ const LeftContainer = styled.div`
 const CenterContainer = styled.div`
   text-align: center;
   width: 50rem;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 `
 
 const MacOptions = styled.div`
@@ -49,6 +53,9 @@ const Circle = styled.div`
 `
 
 const Header = () => {
+  // change this later into a prop
+  const path = '/website'
+
   return (
     <TopBar>
       <LeftContainer>
@@ -58,7 +65,9 @@ const Header = () => {
           <Circle />
         </MacOptions>
       </LeftContainer>
-      <CenterContainer>guest@paineleffler.com: ~/website</CenterContainer>
+      <CenterContainer>
+        <p unselectable="on">guest@paineleffler.com: ~{path}</p>
+      </CenterContainer>
       <RightContainer />
     </TopBar>
   )
