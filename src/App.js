@@ -1,8 +1,9 @@
 import React from 'react'
+import Terminal from './components/Terminal'
 
 function App () {
   return (
-    <>Hello</>
+    <Terminal />
   )
 }
 
