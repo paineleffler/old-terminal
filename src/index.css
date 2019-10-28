@@ -38,3 +38,21 @@ body {
   background-color: #C839C5;
   color: white;
 }
+
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 7.5px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 12.5px;
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  html {
+    font-size: 15px;
+  }
+}
