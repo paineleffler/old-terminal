@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const TopBar = styled.div`
   display: flex;
@@ -53,9 +54,8 @@ const Circle = styled.div`
   }
 `
 
-const Header = () => {
-  // change this later into a prop
-  const path = '/website'
+const Header = (props) => {
+  const { currentDirectory } = props
 
   return (
     <TopBar>
@@ -67,11 +67,19 @@ const Header = () => {
         </MacOptions>
       </LeftContainer>
       <CenterContainer>
-        guest@paineleffler.com: ~{path}
+        guest@paineleffler.com: ~/{currentDirectory}
       </CenterContainer>
       <RightContainer />
     </TopBar>
   )
+}
+
+Header.propTypes = {
+  currentDirectory: PropTypes.string
+}
+
+Header.defaultProps = {
+  currentDirectory: 'website'
 }
 
 export default Header

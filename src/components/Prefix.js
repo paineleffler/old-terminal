@@ -37,12 +37,13 @@ const X = styled.span`
 
 const Prefix = (props) => {
   // did last command error or work?
-  const { success } = props
+  const { success, type, branch, currentDirectory, changes } = props
   return (
-    <span>
+    type === 'input' && <span>
       <Arrow success={success}>→</Arrow>
-      <CurrentDirectory>website</CurrentDirectory>
-      <Git>git:(<Branch>master</Branch>)</Git><X>&#10008;</X>
+      <CurrentDirectory>{currentDirectory}</CurrentDirectory>
+      <Git>git:(<Branch>{branch}</Branch>)</Git>
+      { changes && <X>&#10008;</X> }
     </span>
   )
 }
@@ -53,7 +54,10 @@ const Prefix = (props) => {
 
 Prefix.propTypes = {
   success: PropTypes.bool,
-  type: PropTypes.string
+  type: PropTypes.string,
+  branch: PropTypes.string,
+  currentDirectory: PropTypes.string,
+  changes: PropTypes.bool
 }
 
 export default Prefix

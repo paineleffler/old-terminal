@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import Header from './Header'
@@ -11,11 +11,17 @@ const TerminalContainer = styled.div`
 `
 
 const Terminal = () => {
+  const [success, setSuccess] = useState(true)
+  const [type, setType] = useState('input')
+  const [branch, setBranch] = useState('master')
+  const [currentDirectory, setCurrentDirectory] = useState('website')
+  const [changes, setChanges] = useState(false)
+
   return (
     <TerminalContainer>
-      <Header />
+      <Header currentDirectory={currentDirectory} />
       <History />
-      <Command />
+      <Command success={success} type={type} branch={branch} currentDirectory={currentDirectory} changes={changes} />
     </TerminalContainer>
   )
 }
