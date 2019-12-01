@@ -67,7 +67,7 @@ const Header = (props) => {
         </MacOptions>
       </LeftContainer>
       <CenterContainer>
-        guest@paineleffler.com: ~/{currentDirectory}
+        guest@{window.location.host}: ~/{currentDirectory}
       </CenterContainer>
       <RightContainer />
     </TopBar>
