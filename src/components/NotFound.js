@@ -3,9 +3,12 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   display: flex;
-  flex: 1;
+  min-height: 100vh;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  align-self: center;
+  margin: auto;
 `
 
 const Title = styled.span`
