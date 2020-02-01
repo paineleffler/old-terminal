@@ -9,7 +9,7 @@ const TerminalContainer = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin: 1.5rem;
+  padding: 1.5rem;
   font-size: 2rem;
 `
 

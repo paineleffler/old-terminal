@@ -12,4 +12,3 @@ function ThemeContextProvider (props) {
 }
 
 export { ThemeContextProvider, ThemeContext }
-
