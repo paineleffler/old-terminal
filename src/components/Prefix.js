@@ -7,31 +7,31 @@ const Arrow = styled.span`
   margin-right: 1rem;
   ${props => props.success
   ? css`
-    color: #67F86F;
+    color: ${props => (props.theme.success)};
   `
   : css`
-    color: #FD6F6B;
+    color: ${props => (props.theme.error)};
   `}
 `
 
 const CurrentDirectory = styled.span`
-  color: #68FDFE;
+  color: ${props => (props.theme.directory)};
   font-weight: 600;
   margin-right: 1rem;
 `
 
 const Git = styled.span`
-  color: #6A76FB;
+  color: ${props => (props.theme.secondary)};
   font-weight: 600;
   margin-right: 1rem;
 `
 
 const Branch = styled.span`
-  color: #FD6F6B;
+  color: ${props => (props.theme.error)};
 `
 
 const X = styled.span`
-  color: #FFFA72;
+  color: ${props => (props.theme.tertiary)};
   margin-right: 1rem;
 `
 

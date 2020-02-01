@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 
 const TopBar = styled.div`
   display: flex;
-  flex: 1;
   height: 2rem;
   font-size: 1.5rem;
   font-weight: 300;
@@ -25,9 +24,6 @@ const LeftContainer = styled.div`
 const CenterContainer = styled.div`
   text-align: center;
   width: 50rem;
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
 `
 

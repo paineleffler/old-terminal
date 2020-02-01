@@ -6,6 +6,9 @@ import History from './History'
 import Command from './Command'
 
 const TerminalContainer = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   margin: 1.5rem;
   font-size: 2rem;
 `

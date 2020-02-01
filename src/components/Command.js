@@ -6,18 +6,21 @@ import Prefix from './Prefix'
 import Suffix from './Suffix'
 
 const StyledCommand = styled.span`
-  font-weight: 300;
+  font-weight: 400;
+  color: ${props => (props.theme.color)};
+`
+const CommandContainer = styled.div`
 `
 
 const Command = (props) => {
   const { success, type, branch, currentDirectory, changes } = props
 
   return (
-    <>
+    <CommandContainer>
       <Prefix success={success} type={type} branch={branch} currentDirectory={currentDirectory} changes={changes} />
-      <StyledCommand>*input goes here*</StyledCommand>
+      <StyledCommand>Hello, my website is finally getting an upgrade! <span role="img" aria-label="smile">🙂</span> Commands haven't been added back yet. Currently, working on getting a full Hyper UI redesign with theming support. Refresh for a random theme!</StyledCommand>
       <Suffix />
-    </>
+    </CommandContainer>
   )
 }
 

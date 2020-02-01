@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Cursor = styled.span`
-  color: #C839C5;
+  color: ${props => (props.theme.cursor)};
   line-height: 2rem;
   vertical-align: text-bottom;
   -webkit-animation: blink 1s step-end infinite;
