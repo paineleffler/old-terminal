@@ -18,7 +18,7 @@ const Command = (props) => {
   return (
     <CommandContainer>
       <Prefix success={success} type={type} branch={branch} currentDirectory={currentDirectory} changes={changes} />
-      <StyledCommand>Hello, my website is finally getting an upgrade! <span role="img" aria-label="smile">🙂</span> Commands haven't been added back yet. Currently, working on getting a full Hyper UI redesign with theming support. Refresh for a random theme!</StyledCommand>
+      <StyledCommand></StyledCommand>
       <Suffix />
     </CommandContainer>
   )

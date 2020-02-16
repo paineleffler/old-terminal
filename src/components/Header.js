@@ -23,7 +23,6 @@ const LeftContainer = styled.div`
 
 const CenterContainer = styled.div`
   text-align: center;
-  width: 50rem;
   user-select: none; /* Standard */
 `
 

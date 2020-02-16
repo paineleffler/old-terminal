@@ -9,16 +9,6 @@ const Themes = {
     cursor: '#C839C5',
     directory: '#68FDFE'
   },
-  defaultLight: {
-    background: '#ffffff',
-    color: '#000000',
-    error: '#FD6F6B',
-    success: '#67F86F',
-    secondary: '#6A76FB',
-    tertiary: '#FFFA72',
-    cursor: '#C839C5',
-    directory: '#6CE7F7'
-  },
   solarized: {
     background: '#002b36',
     color: '#586e75',

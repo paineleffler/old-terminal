@@ -1,20 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useContext } from 'react'
 
+import { TerminalContext } from './TerminalContextProvider'
 import Line from './Line'
 
 const History = (props) => {
-  const { previousLines } = props
+  const { history } = useContext(TerminalContext)
 
   return (
-    previousLines > 0 && previousLines.map((line, index) => {
+    history.length > 0 && history.map((line, index) => {
       return <Line type={line.type} content={line.content} key={index} />
     })
   )
-}
-
-History.propTypes = {
-  previousLines: PropTypes.array
 }
 
 export default History

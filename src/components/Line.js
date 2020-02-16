@@ -6,7 +6,7 @@ import Prefix from './Prefix'
 const Line = (props) => {
   const { content, type } = props
   return (
-    type === 'input' ? <><Prefix /><p>{content}</p></> : <p>{content}</p>
+    type === 'input' ? <span><Prefix />{content}</span> : <>{ content }</>
   )
 }
 

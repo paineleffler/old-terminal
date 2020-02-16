@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 
-// import { ThemeContext } from './ThemeContextProvider'
+import { ThemeContext } from './ThemeContextProvider'
 import Themes from '../config/Themes'
 import TerminalPage from './TerminalPage'
 import NotFoundPage from './NotFoundPage'
@@ -40,13 +40,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 function Router () {
-  // const { theme, setTheme } = useContext(ThemeContext)
-  const keys = Object.keys(Themes)
-  const randomTheme = keys[Math.floor(Math.random() * 10) % keys.length]
+  const { theme } = useContext(ThemeContext)
+
   return (
     // temporary random default
-    <ThemeProvider theme={Themes[randomTheme]}>
-      <GlobalStyle background={Themes[randomTheme].background} />
+    <ThemeProvider theme={Themes[theme]}>
+      <GlobalStyle background={Themes[theme].background} />
       <BrowserRouter>
         <Switch>
           <Route exact path='/' component={TerminalPage} />

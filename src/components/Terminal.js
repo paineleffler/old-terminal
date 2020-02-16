@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import Header from './Header'
 import History from './History'
 import Command from './Command'
+import { TerminalContext } from './TerminalContextProvider'
 
 const TerminalContainer = styled.div`
   display: flex;
@@ -14,11 +15,7 @@ const TerminalContainer = styled.div`
 `
 
 const Terminal = () => {
-  const [success, setSuccess] = useState(true)
-  const [type, setType] = useState('input')
-  const [branch, setBranch] = useState('master')
-  const [currentDirectory, setCurrentDirectory] = useState('website')
-  const [changes, setChanges] = useState(false)
+  const { success, currentDirectory, type, branch, changes } = useContext(TerminalContext)
 
   return (
     <TerminalContainer>
