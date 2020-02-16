@@ -6,7 +6,6 @@ import Prefix from './Prefix'
 import Suffix from './Suffix'
 
 const StyledCommand = styled.span`
-  font-weight: 400;
   color: ${props => (props.theme.color)};
 `
 const CommandContainer = styled.div`

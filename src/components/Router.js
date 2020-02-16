@@ -8,21 +8,26 @@ import TerminalPage from './TerminalPage'
 import NotFoundPage from './NotFoundPage'
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Menlo Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Menlo Regular'), url('Menlo-Regular.woff') format('woff');
+  }
   html {
     font-size: 62.5%;
   }
 
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
+    font-weight: 300;
+    font-family: Menlo Regular, DejaVu Sans Mono, Consolas, Lucida Console, monospace;
     background: ${props => (props.background)};
   }
 
   @media screen and (max-width: 767px) {
     html {
-      font-size: 7.5px;
+      font-size: 8px;
     }
   }
 
@@ -34,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
 
   @media screen and (min-width: 2200px) {
     html {
-      font-size: 12.5px;
+      font-size: 12px;
     }
   }
 `
