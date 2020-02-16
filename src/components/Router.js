@@ -54,7 +54,7 @@ function Router () {
       <BrowserRouter>
         <Switch>
           <Route exact path='/' component={TerminalPage} />
-          <Route path='*' component={NotFoundPage} />
+          <Route component={NotFoundPage} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>

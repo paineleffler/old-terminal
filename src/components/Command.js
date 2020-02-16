@@ -1,25 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import Prefix from './Prefix'
 import Suffix from './Suffix'
 
+const Row = styled.span``
+
 const StyledCommand = styled.span`
-  color: ${props => (props.theme.color)};
-`
-const CommandContainer = styled.div`
+  outline: none;
+  background: inherit;
+  color: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  text-shadow: 0 0 0 ${p => p.theme.color};
+  min-width: 1rem;
 `
 
 const Command = (props) => {
   const { success, type, branch, currentDirectory, changes } = props
+  const [input, setInput] = useState('')
 
   return (
-    <CommandContainer>
+    <Row>
       <Prefix success={success} type={type} branch={branch} currentDirectory={currentDirectory} changes={changes} />
-      <StyledCommand></StyledCommand>
+      <StyledCommand spellCheck={false} value={input} contentEditable={true} onChange={e => { setInput(e.target.value)}}></StyledCommand>
       <Suffix />
-    </CommandContainer>
+    </Row>
   )
 }
 

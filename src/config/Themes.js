@@ -1,5 +1,5 @@
 const Themes = {
-  defaultDark: {
+  default: {
     background: '#000000',
     color: '#ffffff',
     error: '#FD6F6B',
