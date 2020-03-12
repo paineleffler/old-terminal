@@ -8,7 +8,7 @@ const TopBar = styled.div`
   font-size: 1.5rem;
   font-weight: 300;
   flex-direction: row;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   justify-content: space-between;
 `
 
