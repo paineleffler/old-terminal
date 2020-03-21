@@ -15,7 +15,7 @@ function TerminalContextProvider (props) {
     },
     {
       type: 'output',
-      content: 'Hello, my website is finally getting an upgrade! New features: Hyper Term UI, Syntax Highlighting, Terminal Themes, Better Responsiveness, More Commands.'
+      content: 'Hello, my website is finally getting an upgrade! New features: Hyper Term UI, Syntax Highlighting, Terminal Themes, Better Responsiveness, More Commands. I have been pretty busy recently, so this website is still under construction.'
     }
   ])
 

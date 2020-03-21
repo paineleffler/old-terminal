@@ -24,7 +24,7 @@ const Command = (props) => {
   return (
     <Row>
       <Prefix success={success} type={type} branch={branch} currentDirectory={currentDirectory} changes={changes} />
-      <StyledCommand spellCheck={false} value={input} contentEditable={true} onChange={e => { setInput(e.target.value)}}></StyledCommand>
+      <StyledCommand spellCheck={false} value={input} contentEditable={false} onChange={e => { setInput(e.target.value)}}></StyledCommand>
       <Suffix />
     </Row>
   )
