@@ -19,7 +19,6 @@ const StyledCommand = styled.div`
   font-family: inherit;
   text-shadow: 0 0 0 ${p => p.theme.color};
   display: flex;
-  border: 1px red solid;
   min-width: 1rem;
 `
 
