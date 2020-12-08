@@ -1,10 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import Header from './Header'
 import History from './History'
 import Command from './Command'
-import { TerminalContext } from './TerminalContextProvider'
 
 const TerminalContainer = styled.div`
   display: flex;
@@ -14,16 +13,12 @@ const TerminalContainer = styled.div`
   font-size: 2rem;
 `
 
-const Terminal = () => {
-  const { success, currentDirectory, type, branch, changes } = useContext(TerminalContext)
-
+export default function Terminal () {
   return (
     <TerminalContainer>
-      <Header currentDirectory={currentDirectory} />
+      <Header />
       <History />
-      <Command success={success} type={type} branch={branch} currentDirectory={currentDirectory} changes={changes} />
+      <Command />
     </TerminalContainer>
   )
 }
-
-export default Terminal

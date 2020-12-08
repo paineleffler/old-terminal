@@ -1,17 +1,18 @@
 import React from 'react'
+import styled from 'styled-components'
+import { useRecoilState } from 'recoil'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+
+import { branchState, directoryState, gitChangesState, lastCommandSuccessState } from '../lib/Atoms'
+
+const Container = styled.div`
+  display: flex;
+`
 
 const Arrow = styled.span`
   font-weight: 600;
   margin-right: 1rem;
-  ${props => props.success
-  ? css`
-    color: ${props => (props.theme.success)};
-  `
-  : css`
-    color: ${props => (props.theme.error)};
-  `}
+  color: ${p => p.success ? p.theme.success : p.theme.error};
 `
 
 const CurrentDirectory = styled.span`
@@ -35,29 +36,22 @@ const X = styled.span`
   margin-right: 1rem;
 `
 
-const Prefix = (props) => {
-  // did last command error or work?
-  const { success, type, branch, currentDirectory, changes } = props
+export default function Prefix (props) {
+  const { success } = props
+  const [branch] = useRecoilState(branchState)
+  const [directory] = useRecoilState(directoryState)
+  const [gitChanges] = useRecoilState(gitChangesState)
+
   return (
-    type === 'input' && <span>
+    <Container>
       <Arrow success={success}>→</Arrow>
-      <CurrentDirectory>{currentDirectory}</CurrentDirectory>
+      <CurrentDirectory>{directory}</CurrentDirectory>
       <Git>git:(<Branch>{branch}</Branch>)</Git>
-      { changes && <X>&#10008;</X> }
-    </span>
+      { gitChanges && <X>&#10008;</X> }
+    </Container>
   )
 }
 
-// type is one of 'output' or 'input'
-// Output does not have a line prefix
-// Input does have a line prefix
-
 Prefix.propTypes = {
-  success: PropTypes.bool,
-  type: PropTypes.string,
-  branch: PropTypes.string,
-  currentDirectory: PropTypes.string,
-  changes: PropTypes.bool
+  success: PropTypes.bool
 }
-
-export default Prefix

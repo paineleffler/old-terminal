@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { useRecoilState } from 'recoil'
 
-import { ThemeContext } from './ThemeContextProvider'
-import Themes from '../config/Themes'
-import TerminalPage from './TerminalPage'
-import NotFoundPage from './NotFoundPage'
+import { themeState } from '../lib/Atoms'
+import Themes from '../lib/Themes'
+import TerminalPage from './pages/TerminalPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -44,8 +45,8 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-function Router () {
-  const { theme } = useContext(ThemeContext)
+export default function Router () {
+  const [theme] = useRecoilState(themeState)
 
   return (
     // temporary random default
@@ -60,5 +61,3 @@ function Router () {
     </ThemeProvider>
   )
 }
-
-export default Router

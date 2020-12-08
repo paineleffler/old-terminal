@@ -1,37 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import { useRecoilState } from 'recoil'
+
+import { directoryState } from '../lib/Atoms'
 
 const TopBar = styled.div`
-  display: flex;
-  height: 2rem;
-  font-size: 1.5rem;
-  font-weight: 300;
-  flex-direction: row;
-  margin-bottom: 3rem;
-  justify-content: space-between;
-`
-
-const RightContainer = styled.div`
-  align-self: flex-start;
-  width: .5rem;
-`
-
-const LeftContainer = styled.div`
-  align-self: flex-start;
+  margin-bottom: 5rem;
 `
 
 const CenterContainer = styled.div`
-  text-align: center;
-  user-select: none; /* Standard */
+  font-size: 1.2rem;
+  font-weight: 300;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 `
 
 const MacOptions = styled.div`
+  position: absolute;
   display: flex;
-  flex: 1;
   flex-direction: row;
-  justify-content: space-between;
-  width: 7rem;
 `
 
 const Circle = styled.div`
@@ -43,38 +31,25 @@ const Circle = styled.div`
   }
   :nth-child(2) {
     background-color: #FEBD2E;
+    margin-left: 1.25rem;
   }
   :last-child {
     background-color: #29CE42;
+    margin-left: 1.25rem;
   }
 `
 
-const Header = (props) => {
-  const { currentDirectory } = props
+export default function Header () {
+  const [directory] = useRecoilState(directoryState)
 
   return (
     <TopBar>
-      <LeftContainer>
-        <MacOptions>
-          <Circle />
-          <Circle />
-          <Circle />
-        </MacOptions>
-      </LeftContainer>
-      <CenterContainer>
-        guest@{window.location.host}: ~/{currentDirectory}
-      </CenterContainer>
-      <RightContainer />
+      <MacOptions>
+        <Circle />
+        <Circle />
+        <Circle />
+      </MacOptions>
+      <CenterContainer>guest@{window.location.host}:&nbsp;~/{directory}</CenterContainer>
     </TopBar>
   )
 }
-
-Header.propTypes = {
-  currentDirectory: PropTypes.string
-}
-
-Header.defaultProps = {
-  currentDirectory: 'website'
-}
-
-export default Header

@@ -1,16 +1,15 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useRecoilState } from 'recoil'
 
-import { TerminalContext } from './TerminalContextProvider'
+import { historyState } from '../lib/Atoms'
 import Line from './Line'
 
-const History = (props) => {
-  const { history } = useContext(TerminalContext)
+export default function History () {
+  const [history] = useRecoilState(historyState)
 
   return (
-    history.length > 0 && history.map((line, index) => {
-      return <Line type={line.type} content={line.content} key={index} />
+    history.map(({ type, content, success }, index) => {
+      return <Line type={type} content={content} success={success} key={index} />
     })
   )
 }
-
-export default History

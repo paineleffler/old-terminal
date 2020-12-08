@@ -1,14 +1,12 @@
 import React from 'react'
+import { RecoilRoot } from 'recoil'
 
-import { ThemeContextProvider } from './components/ThemeContextProvider'
 import Router from './components/Router'
 
-function App (props) {
+export default function App (props) {
   return (
-    <ThemeContextProvider>
+    <RecoilRoot>
       <Router />
-    </ThemeContextProvider>
+    </RecoilRoot>
   )
 }
-
-export default App

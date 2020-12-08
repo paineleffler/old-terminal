@@ -12,6 +12,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-typed": "^1.2.0",
+    "recoil": "^0.1.2",
     "styled-components": "^4.4.0",
     "twilio": "^3.37.1"
   },

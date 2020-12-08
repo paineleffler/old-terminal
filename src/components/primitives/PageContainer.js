@@ -1,4 +1,4 @@
-import React from 'react'
+
 import styled from 'styled-components'
 
 const PageContainer = styled.div`
@@ -11,12 +11,4 @@ const PageContainer = styled.div`
   }
 `
 
-function StyledPage (props) {
-  return (
-    <PageContainer>
-      { props.children }
-    </PageContainer>
-  )
-}
-
-export default StyledPage
+export default PageContainer
