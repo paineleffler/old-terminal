@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useRecoilState } from 'recoil'
 import PropTypes from 'prop-types'
 
-import { branchState, directoryState, gitChangesState, lastCommandSuccessState } from '../lib/Atoms'
+import { branchState, directoryState, gitChangesState } from '../lib/Atoms'
 
 const Container = styled.div`
   display: flex;
