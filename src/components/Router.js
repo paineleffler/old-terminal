@@ -33,9 +33,10 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-export default function Router () {
-  const [theme] = useRecoilState(themeState)
+const PossibleThemes = ['default', 'solarized', 'criollo']
+const theme = PossibleThemes[Math.floor(Math.random() * 3)]
 
+export default function Router () {
   return (
     // temporary random default
     <ThemeProvider theme={Themes[theme]}>
