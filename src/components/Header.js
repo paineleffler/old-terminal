@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useRecoilState } from 'recoil'
 
-import { directoryState } from '../lib/Atoms'
+import { directoryState, commandState } from '../lib/Atoms'
 
 const TopBar = styled.div`
   margin-bottom: 3rem;
@@ -41,6 +41,7 @@ const Circle = styled.div`
 
 export default function Header () {
   const [directory] = useRecoilState(directoryState)
+  const [command] = useRecoilState(commandState)
 
   return (
     <TopBar>
@@ -49,7 +50,7 @@ export default function Header () {
         <Circle />
         <Circle />
       </MacOptions>
-      <CenterContainer>guest@{window.location.host}:&nbsp;~/{directory}</CenterContainer>
+      <CenterContainer>{`guest@${window.location.host}:~/${directory}`}</CenterContainer>
     </TopBar>
   )
 }
