@@ -5,10 +5,6 @@ import PropTypes from 'prop-types'
 
 import { branchState, directoryState, gitChangesState } from '../lib/Atoms'
 
-const Container = styled.div`
-  display: inline;
-`
-
 const Arrow = styled.span`
   font-weight: 600;
   color: ${p => p.success ? p.theme.success : p.theme.error};

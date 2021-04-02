@@ -1,9 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
-import { useRecoilState } from 'recoil'
 
-import { themeState } from '../lib/Atoms'
 import Themes from '../lib/Themes'
 import TerminalPage from './pages/TerminalPage'
 import NotFoundPage from './pages/NotFoundPage'

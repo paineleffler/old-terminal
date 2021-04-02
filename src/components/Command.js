@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'

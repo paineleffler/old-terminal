@@ -8,7 +8,7 @@ const defaultHistory = [
   },
   {
     type: 'output',
-    content: 'Hello, my website is finally getting an upgrade! New features: Hyper Term UI, Syntax Highlighting, Terminal Themes, Better Responsiveness, More Commands. I have been pretty busy recently, so this website is still under construction.'
+    content: 'Hi! I\'m Paine and welcome to my terminal. There is still a lot missing but bear with me.'
   }
 ]
 

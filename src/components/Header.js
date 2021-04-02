@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useRecoilState } from 'recoil'
 
-import { directoryState, commandState } from '../lib/Atoms'
+import { directoryState } from '../lib/Atoms'
 
 const TopBar = styled.div`
   margin-bottom: 3rem;
@@ -41,7 +41,6 @@ const Circle = styled.div`
 
 export default function Header () {
   const [directory] = useRecoilState(directoryState)
-  const [command] = useRecoilState(commandState)
 
   return (
     <TopBar>
