@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     src: local('Menlo Regular'), url('Menlo-Regular.woff') format('woff');
   }
   html {
-    font-size: 62.5%;
+    font-size: 100%;
   }
 
   body {
@@ -26,21 +26,9 @@ const GlobalStyle = createGlobalStyle`
     background: ${props => (props.background)};
   }
 
-  @media screen and (max-width: 767px) {
-    html {
-      font-size: 8px;
-    }
-  }
-
   @media screen and (min-width: 1200px) {
     html {
-      font-size: 10px;
-    }
-  }
-
-  @media screen and (min-width: 2200px) {
-    html {
-      font-size: 12px;
+      font-size: 24px;
     }
   }
 `

@@ -5,11 +5,11 @@ import { useRecoilState } from 'recoil'
 import { directoryState } from '../lib/Atoms'
 
 const TopBar = styled.div`
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 `
 
 const CenterContainer = styled.div`
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   font-weight: 300;
   position: absolute;
   left: 50%;
@@ -23,19 +23,19 @@ const MacOptions = styled.div`
 `
 
 const Circle = styled.div`
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 0.7rem;
+  height: 0.7rem;
   border-radius: 50%;
   :first-child {
     background-color: #FE6057;
   }
   :nth-child(2) {
     background-color: #FEBD2E;
-    margin-left: 1.25rem;
+    margin-left: 0.55rem;
   }
   :last-child {
     background-color: #29CE42;
-    margin-left: 1.25rem;
+    margin-left: 0.55rem;
   }
 `
 

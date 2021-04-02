@@ -32,6 +32,11 @@ export const historyState = atom({
   default: defaultHistory
 })
 
+export const commandState = atom({
+  key: 'commandState',
+  default: ''
+})
+
 export const gitChangesState = atom({
   key: 'gitChangesState',
   default: false

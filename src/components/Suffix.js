@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Cursor = styled.div`
+const Cursor = styled.span`
   color: ${props => (props.theme.cursor)};
   -webkit-animation: blink 1s step-end infinite;
   animation: blink 1s step-end infinite;
@@ -16,8 +16,6 @@ const Cursor = styled.div`
     50% { opacity: 0.0; }
     100% { opacity: 1.0; }
   }
-  display: flex;
-  flex-grow: 1;
 `
 
 export default function Suffix () {

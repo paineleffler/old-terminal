@@ -14,20 +14,20 @@ const Container = styled.div`
 
 const Title = styled.span`
   color: ${p => p.theme.error}; 
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 600;
 `
 
 const Subtitle = styled.span`
   margin: 2rem 4rem;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 400;
   text-align: center;
 `
 
 const StyledLink = styled.div`
   padding-top: 1rem;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 400;
   a {
     color: ${p => p.theme.secondary};

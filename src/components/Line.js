@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 import Prefix from './Prefix'
 
-const LineContainer = styled.div`
-  display: flex;
+const LineContainer = styled.span`
+  word-break: break-all;
 `
 
 export default function Line (props) {

@@ -1,7 +1,7 @@
 const Themes = {
   default: {
     background: '#000000',
-    color: '#ffffff',
+    color: '#f5f5f7',
     error: '#FD6F6B',
     success: '#67F86F',
     secondary: '#6A76FB',
