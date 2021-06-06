@@ -6,7 +6,8 @@ import PropTypes from 'prop-types'
 import { commandState, historyState } from '../lib/Atoms'
 import Prefix from './Prefix'
 import Suffix from './Suffix'
-import { getOutput } from '../lib/Output'
+import { StringMatching } from '../lib/StringMatching'
+import TextMessage from '../lib/TextMessage'
 
 const StyledCommand = styled.span`
   word-break: break-all;
@@ -27,13 +28,38 @@ export default function Command (props) {
     }
   }, [command])
 
-  function keyPressHandler (keyEvent) {
+  async function getOutput (command) {
+    if (typeof StringMatching[command] === 'string') {
+      return StringMatching[command]
+    } else if (/^node text.js/.test(command)) {
+      return TextMessage(command)
+    } else {
+      return `zsh: command not found: ${command}`
+    }
+  }
+
+  async function keyPressHandler (keyEvent) {
     const { key, keyCode } = keyEvent
 
     if (keyCode === BACKSPACE) {
       command.length > 0 && setCommand(command.slice(0, command.length - 1))
     } else if (keyCode === ENTER) {
-      setHistory([...history, { type: 'input', content: command, success: true }, { type: 'output', content: getOutput(command), success: false }])
+      if (command === 'clear') {
+        setHistory([])
+      } else {
+        setHistory([
+          ...history,
+          {
+            type: 'input',
+            content: command,
+            success: true
+          },
+          {
+            type: 'output',
+            content: await getOutput(command),
+            success: true
+          }])
+      }
       setCommand('')
     } else {
       setCommand(`${command}${key}`)

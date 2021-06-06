@@ -28,8 +28,10 @@ app.post('/api/contact', (req, res) => {
     to: process.env.MY_NUMBER,
     from: process.env.TWILIO_NUMBER
   }).then(() => {
-    res.send('Your text message was sent!')
+    res.json({ message: 'Your text message was sent!' })
   }).catch(error => {
-    res.send(`There was an error with Twilio 🙁. ${error}`)
+    res.json(
+      { message: `There was an error with Twilio 🙁. ${error}` }
+    )
   })
 })
