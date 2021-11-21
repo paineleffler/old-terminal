@@ -6,7 +6,7 @@ import axios from 'axios'
  * @param {string} command
  */
 
-const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
+const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/
 
 export default async function TextMessage (command) {
   const args = command.split(' ')

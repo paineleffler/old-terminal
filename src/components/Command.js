@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useRecoilState } from 'recoil'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { commandState, historyState } from '../lib/Atoms'
+import { historyState } from '../lib/Atoms'
 import Prefix from './Prefix'
 import Suffix from './Suffix'
 import { StringMatching } from '../lib/StringMatching'
@@ -11,22 +11,36 @@ import TextMessage from '../lib/TextMessage'
 
 const StyledCommand = styled.span`
   word-break: break-all;
+  caret-color: transparent;
+  :focus {
+    outline: none;
+  }
 `
 
 export default function Command (props) {
   const { success, type, branch, currentDirectory, changes } = props
-  const [command, setCommand] = useRecoilState(commandState)
   const [history, setHistory] = useRecoilState(historyState)
 
-  const ENTER = 13
-  const BACKSPACE = 8
+  const commandInput = useRef(null)
+
+  const DISALLOWED_KEYCODES = [10, 13]
 
   useEffect(() => {
+    commandInput.current.focus()
+    commandInput.current.addEventListener('keydown', e => {
+      if (DISALLOWED_KEYCODES.includes(e.keyCode)) {
+        e.preventDefault()
+      }
+    })
+
     window.addEventListener('keydown', keyPressHandler)
+    window.addEventListener('click', clickHandler)
+
     return () => {
       window.removeEventListener('keydown', keyPressHandler)
+      window.removeEventListener('click', clickHandler)
     }
-  }, [command])
+  }, [history])
 
   async function getOutput (command) {
     if (typeof StringMatching[command] === 'string') {
@@ -38,38 +52,39 @@ export default function Command (props) {
     }
   }
 
-  async function keyPressHandler (keyEvent) {
-    const { key, keyCode } = keyEvent
+  function clickHandler () {
+    commandInput.current.focus()
+  }
 
-    if (keyCode === BACKSPACE) {
-      command.length > 0 && setCommand(command.slice(0, command.length - 1))
-    } else if (keyCode === ENTER) {
-      if (command === 'clear') {
+  async function keyPressHandler (keyEvent) {
+    const { keyCode } = keyEvent
+    const inputValue = commandInput.current.innerText
+    if (DISALLOWED_KEYCODES.includes(keyCode)) {
+      if (inputValue === 'clear') {
         setHistory([])
       } else {
         setHistory([
           ...history,
           {
             type: 'input',
-            content: command,
+            content: inputValue,
             success: true
           },
           {
             type: 'output',
-            content: await getOutput(command),
+            content: await getOutput(inputValue),
             success: true
-          }])
+          }
+        ])
       }
-      setCommand('')
-    } else {
-      setCommand(`${command}${key}`)
+      commandInput.current.innerHTML = ''
     }
   }
 
   return (
     <span>
       <Prefix success={success} type={type} branch={branch} currentDirectory={currentDirectory} changes={changes} />
-      <StyledCommand>{command}</StyledCommand>
+      <StyledCommand tabIndex={0} ref={commandInput} contentEditable></StyledCommand>
       <Suffix />
     </span>
   )
