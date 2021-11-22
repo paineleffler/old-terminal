@@ -41,3 +41,8 @@ export const gitChangesState = atom({
   key: 'gitChangesState',
   default: false
 })
+
+export const pastCommands = atom({
+  key: 'pastCommands',
+  default: []
+})

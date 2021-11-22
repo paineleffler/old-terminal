@@ -59,9 +59,12 @@ export default function Command (props) {
   async function keyPressHandler (keyEvent) {
     const { keyCode } = keyEvent
     const inputValue = commandInput.current.innerText
-    if (DISALLOWED_KEYCODES.includes(keyCode)) {
-      if (inputValue === 'clear') {
+    const enterKeys = [10, 13]
+    if (enterKeys.includes(keyCode)) {
+      if (inputValue === 'clear' || inputValue === 'c') {
         setHistory([])
+      } else if (inputValue === 'exit') {
+        window.close()
       } else {
         setHistory([
           ...history,
