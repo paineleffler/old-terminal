@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { Helmet } from 'react-helmet'
 
 import Themes from '../lib/Themes'
 import TerminalPage from './pages/TerminalPage'
@@ -36,8 +37,10 @@ const theme = PossibleThemes[Math.floor(Math.random() * 3)]
 
 export default function Router () {
   return (
-    // temporary random default
     <ThemeProvider theme={Themes[theme]}>
+      <Helmet>
+        <meta name="theme-color" content={Themes[theme].background} />
+      </Helmet>
       <GlobalStyle background={Themes[theme].background} />
       <BrowserRouter>
         <Switch>
