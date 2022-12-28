@@ -10,7 +10,8 @@ import { StringMatching } from '../lib/StringMatching'
 import TextMessage from '../lib/TextMessage'
 
 const StyledCommand = styled.span`
-  word-break: break-all;
+  // word-break: break-all;
+  white-space: normal;
   caret-color: transparent;
   :focus {
     outline: none;

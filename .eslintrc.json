@@ -17,9 +17,6 @@
         "ecmaVersion": 2020,
         "sourceType": "module"
     },
-    "plugins": [
-        "react"
-    ],
     "rules": {
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error"

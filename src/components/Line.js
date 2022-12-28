@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Prefix from './Prefix'
 
 const LineContainer = styled.span`
-  word-break: break-all;
+  // word-break: break-all;
 `
 
 export default function Line (props) {
@@ -14,9 +14,9 @@ export default function Line (props) {
     type === 'input'
       ? <LineContainer>
         <Prefix success={success} />
-        { content }
+        {content}
       </LineContainer>
-      : <>{ content }</>
+      : <>{content}</>
   )
 }
 
